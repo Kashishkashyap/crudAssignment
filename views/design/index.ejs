@@ -1,0 +1,29 @@
+<% layout('layout/boilerplate') %> 
+    
+    <h1>Collections</h1>
+    <p>Explore curated lists of top restaurants, cafes, pubs, and bars near your location, based on trends</p>
+    
+    <div class="row d-flex" >
+    <% for(let dish of dishes){ %>
+                <div class="col-12 col-md-6 col-lg-4 mt-3 mb-3">
+                      
+                      <div class="card" style="width: 22rem;">
+                        <div class="image card-img-top position-relative" style="background-image: url('<%= dish.image%>');" >
+                            <div class="d-flex justify-content-between position-absolute w-100" style="bottom: 10px;"><div class="bg-primary text-white" style="padding: 1px 4px;"><%= dish.discount %> OFF</div><div class="" style="background-color: #c9c9c9;margin-right: .75rem; padding: 1px; border-radius: 5px;"><%= dish.time %></div></div>
+                        </div>
+                    <div class="card-body">
+                        <div class="card-title mb-1"><%= dish.restaurant %></div>
+                        <div class="card-text text-muted p-0 d-flex justify-content-between mb-3"><div><%= dish.name %></div><div>Rs.<%= dish.price %> for one</div></div>
+                        <hr>
+
+                        <a href="/zomato/<%=dish._id%>"><button class="btn btn-danger">Show Details</button></a>
+                        <a href="/zomato/<%=dish._id%>/edit"><button class="btn btn-danger">Edit</button></a>
+                        <form class="d-inline" action="/zomato/<%= dish._id %>?_method=DELETE" method="POST">
+                          <button class="btn btn-danger">Delete Dish</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
+        
+        <% } %> 
+      </div>

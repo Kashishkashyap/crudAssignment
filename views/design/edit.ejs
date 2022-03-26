@@ -1,0 +1,56 @@
+<% layout('layout/boilerplate') %> 
+<div class="row">
+    <h1 class="text-center">Edit Dish Details</h1>
+  
+    <div class="col-6 offset-3">
+        <form action="/zomato/<%= dish._id %>?_method=PUT" method="post" novalidate class="formvalidations">
+            <div class="mb-3">
+                <label class="form-label" for="restaurant">Restaurant Name</label>
+            <input value="<%= dish.restaurant %>" type="text" class="form-control" name="zomato[restaurant]" id="restaurant" placeholder="Name of your Restaurant" required>
+            <div class="valid-feedback">
+                Looks Good
+            </div> </div>
+            <div class="mb-3">
+                <label class="form-label" for="name">name</label>
+                <input value="<%= dish.name %>" type="text" class="form-control" id="name" name="zomato[name]" placeholder="name" required>
+            <div class="valid-feedback">
+                Looks Good
+            </div> </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image</label>
+            <input value="<%= dish.image %>" type="text"class="form-control" name="zomato[image]" id="image" placeholder="image" required>
+            <div class="valid-feedback">
+                Looks Good
+            </div> </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Price</label>
+            <input value="<%= dish.price %>" type="number"class="form-control" name="zomato[price]" id="price" placeholder="price" required>
+            <div class="valid-feedback">
+                Looks Good
+            </div> </div>
+            <div class="mb-3">
+                <label class="form-label" for="discount">Discount</label>
+            <input value="<%= dish.discount %>" type="text"class="form-control" name="zomato[discount]" id="discount" placeholder="discount" >
+            <div class="valid-feedback">
+                Looks Good
+            </div> </div>  
+            <div class="mb-3">
+                <label class="form-label" for="time">Deliver Time</label>
+            <input value="<%= dish.time %>" type="text"class="form-control" name="zomato[time]" id="time" placeholder="expected delivery time" >
+            <div class="valid-feedback">
+                Looks Good
+            </div> </div> 
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" id="description" name="zomato[description]" type="text" placeholder="description" rows="5" required><%= dish.description %></textarea>
+            <div class="valid-feedback">
+                Looks Good
+            </div> </div>
+            <div class="mb-3">
+                <button class="btn btn-danger">Update </button>
+                
+            </div>
+            </form>
+    </div>
+</div>
+    

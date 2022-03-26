@@ -1,0 +1,23 @@
+<% layout('layout/boilerplate') %> 
+<div class="container " style="width: 50vw;">
+  <img class="card-img-top" src="<%= dishes.image %> " alt="image"  >
+  <div class="card-body">
+    <h5 class="card-title " style="color: rgb(225, 38, 69); font-size: 40px; "><strong><%= dishes.restaurant %></strong></h5>
+    <p class="card-text" style="color: rgb(225, 38, 69);" ><%= dishes.name %></p>
+    <button class="btn btn-danger">Add Rewiew</button>
+    <button type="button" class="btn btn-light" style="color: rgb(225, 38, 69);">Directions</button>
+    <button type="button" class="btn btn-light" style="color: rgb(225, 38, 69);">Bookmark</button>
+    <button type="button" class="btn btn-light" style="color: rgb(225, 38, 69);">Share</button>
+    <hr>
+    <p class="card-text" ><%= dishes.discount %> Discount</p>
+    <p class="card-text">Price : Rs <%= dishes.price %></p>
+    <p class="card-text"><small class="text-muted"><%= dishes.time %> expected delivery time</small></p>
+    <p class="card-text" ><%= dishes.description %></p>
+   
+  <form class="d-inline" action="/zomato/<%= dishes._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete Dish</button>
+  </form>
+  <a href="/zomato/<%=dishes._id%>/edit"><button class="btn btn-danger">Edit</button></a>
+                        
+  </div> 
+</div>
